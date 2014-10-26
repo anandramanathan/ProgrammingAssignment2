@@ -4,7 +4,7 @@ makeCacheMatrix <- function(m = matrix()) {
   minv <- NULL
   set <- function(mx) {
     m <<- mx
-    minverse <<- NULL
+    minv <<- NULL
   }
   get <- function() m
   setinverse <- function(inv) minv <<- inv
@@ -12,7 +12,7 @@ makeCacheMatrix <- function(m = matrix()) {
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
-## Function that returns the inverse of a matrix from the cache if it exists in cache
+## Function that returns the inverse of a matrix from the cache if it is recently calculated and has a value
 ## Else compute the inverse using solve and return the inverse matrix
 
 cacheSolve <- function(m, ...) {
